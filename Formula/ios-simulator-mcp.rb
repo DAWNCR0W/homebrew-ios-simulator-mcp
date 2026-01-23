@@ -1,5 +1,6 @@
 class IosSimulatorMcp < Formula
   include Language::Python::Virtualenv
+  PYOBJC_VERSION = "12.1"
 
   desc "MCP server for controlling iOS Simulator via macOS Accessibility APIs"
   homepage "https://github.com/DAWNCR0W/ios-simulator-mcp"
@@ -197,7 +198,25 @@ class IosSimulatorMcp < Formula
   def install
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
 
-    virtualenv_install_with_resources
+    venv = virtualenv_create(
+      libexec,
+      "python3.11",
+      system_site_packages: true,
+      without_pip: false
+    )
+
+    venv.pip_install resources.reject { |resource| resource.name.start_with?("pyobjc") }
+
+    system(
+      libexec/"bin/python",
+      "-m",
+      "pip",
+      "install",
+      "--only-binary=:all:",
+      "pyobjc-framework-ApplicationServices==#{PYOBJC_VERSION}"
+    )
+
+    venv.pip_install_and_link buildpath
   end
 
   test do
