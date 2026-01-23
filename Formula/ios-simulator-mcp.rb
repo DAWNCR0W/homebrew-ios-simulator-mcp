@@ -9,6 +9,9 @@ class IosSimulatorMcp < Formula
   license "MIT"
 
   depends_on "python@3.11"
+  depends_on "openssl@3"
+  depends_on "pkg-config" => :build
+  depends_on "rust" => :build
 
   # Populate resources with `brew update-python-resources Formula/ios-simulator-mcp.rb`.
   # resource "mcp" do
@@ -962,6 +965,8 @@ class IosSimulatorMcp < Formula
   end
 
   def install
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+
     virtualenv_install_with_resources
   end
 
