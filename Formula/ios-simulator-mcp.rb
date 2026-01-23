@@ -5,6 +5,8 @@ class IosSimulatorMcp < Formula
   homepage "https://github.com/DAWNCR0W/ios-simulator-mcp"
   version "1.0.0"
   sha256 "4034ed54b5b7cf53c00a98a732b2b4017f1516ff4ee7b902feb7ab8adcd2c340"
+  version "1.0.0"
+  sha256 "4034ed54b5b7cf53c00a98a732b2b4017f1516ff4ee7b902feb7ab8adcd2c340"
   license "MIT"
 
   depends_on "python@3.11"
