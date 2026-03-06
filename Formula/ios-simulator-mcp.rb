@@ -4,9 +4,9 @@ class IosSimulatorMcp < Formula
 
   desc "MCP server for controlling iOS Simulator via macOS Accessibility APIs"
   homepage "https://github.com/DAWNCR0W/ios-simulator-mcp"
-  url "https://github.com/DAWNCR0W/ios-simulator-mcp/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "a5727c83c1c68721c19a3672fe4cdcabfd32ac9af09c4962f0bae0b98f484636"
-  version "1.2.2"
+  url "https://github.com/DAWNCR0W/ios-simulator-mcp/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "ad18eafcf2f8a921afa0520935c82802e9a3a37157810e8b8e4b3d88c6faa619"
+  version "1.3.0"
   license "MIT"
 
   depends_on "python@3.11"
